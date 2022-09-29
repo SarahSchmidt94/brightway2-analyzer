@@ -154,17 +154,29 @@ def test_select_parameters_by_activity_list(pa_fixture):
 
     for exc_type in exc_types:
         if exc_type == 'technosphere':
-            exclist=pa.select_parameters_by_activity_list(act_list)
-            assert exclist == [*act1.technosphere(), *act2.technosphere()]
+            expected_exclist=[*act1.technosphere(), *act2.technosphere()]
+            expected_exclist=[e._data for e in expected_exclist]
+            exclist=pa.select_parameters_by_activity_list(act_list,exc_type='technosphere')
+            exclist = [e._data for e in exclist]
+            assert exclist == expected_exclist
         elif exc_type == 'biosphere':
-            exclist=pa.select_parameters_by_activity_list(act_list)
-            assert exclist == [*act1.biosphere(), *act2.biosphere()]
+            expected_exclist=[*act1.biosphere(), *act2.biosphere()]
+            expected_exclist=[e._data for e in expected_exclist]
+            exclist=pa.select_parameters_by_activity_list(act_list,exc_type='biosphere')
+            exclist = [e._data for e in exclist]
+            assert exclist == expected_exclist
         elif exc_type == 'all':
-            exclist=pa.select_parameters_by_activity_list(act_list)
-            assert exclist == [*act1.exchanges(), *act2.exchanges()]
+            expected_exclist=[*act1.technosphere(),*act1.biosphere(), *act2.technosphere(),*act2.biosphere()]
+            expected_exclist = [e._data for e in expected_exclist]
+            exclist=pa.select_parameters_by_activity_list(act_list,exc_type='all')
+            exclist = [e._data for e in exclist]
+            assert exclist == expected_exclist
         else:
+            expected_exclist=[*act1.technosphere(),*act1.biosphere(), *act2.technosphere(),*act2.biosphere()]
+            expected_exclist = [e._data for e in expected_exclist]
             exclist=pa.select_parameters_by_activity_list(act_list)
-            assert exclist == [*act1.exchanges(), *act2.exchanges()]
+            exclist = [e._data for e in exclist]
+            assert exclist == expected_exclist
 
 
 #def test_select_parameters_by_supply_chain_level():
