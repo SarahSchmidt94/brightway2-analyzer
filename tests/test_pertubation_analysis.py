@@ -196,7 +196,12 @@ def test_select_parameters_by_supply_chain_level(pa_fixture):
         assert len_exclist == len_expected_exclist
 
 
-
+def test_check_for_duplicates(pa_fixture):
+    act3 = get_activity(('foreground', 'act 3'))
+    act3_excs=[exc for exc in act3.exchanges()]
+    elem=pa.check_for_duplicates(act3_excs)
+    expected_elem = ('bio-exc4', 'act 3')
+    assert elem == expected_elem
 
 
 
@@ -205,3 +210,4 @@ if __name__ == "__main__":
     test_fixture_no_errors(None)
     test_select_parameters_by_activity_list()
     test_select_parameters_by_supply_chain_level()
+    test_check_for_duplicates()
