@@ -83,7 +83,7 @@ def check_for_duplicates(param_list):
     for elem in input_output_list:
         if input_output_list.count(elem) > 1:
             print(elem)
-    return
+    return elem
 
 def check_for_loops(param_list, remove=True):
     '''
