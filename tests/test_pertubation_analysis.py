@@ -150,36 +150,36 @@ def test_select_parameters_by_activity_list(pa_fixture):
     act1= get_activity(('foreground', 'act 1'))
     act2 = get_activity(('foreground', 'act 2'))
     act_list=[act1,act2]
-    exc_types=['technosphere', 'biosphere', 'all']
+    exc_types=['technosphere', 'biosphere', 'all', 'xyz']
 
     for exc_type in exc_types:
         if exc_type == 'technosphere':
             expected_exclist=[*act1.technosphere(), *act2.technosphere()]
             expected_exclist=[e._data for e in expected_exclist]
-            exclist=pa.select_parameters_by_activity_list(act_list,exc_type='technosphere')
+            exclist=pa.select_parameters_by_activity_list(act_list,exc_type=exc_type)
             exclist = [e._data for e in exclist]
             assert exclist == expected_exclist
         elif exc_type == 'biosphere':
             expected_exclist=[*act1.biosphere(), *act2.biosphere()]
             expected_exclist=[e._data for e in expected_exclist]
-            exclist=pa.select_parameters_by_activity_list(act_list,exc_type='biosphere')
+            exclist=pa.select_parameters_by_activity_list(act_list,exc_type=exc_type)
             exclist = [e._data for e in exclist]
             assert exclist == expected_exclist
         elif exc_type == 'all':
             expected_exclist=[*act1.technosphere(),*act1.biosphere(), *act2.technosphere(),*act2.biosphere()]
             expected_exclist = [e._data for e in expected_exclist]
-            exclist=pa.select_parameters_by_activity_list(act_list,exc_type='all')
+            exclist=pa.select_parameters_by_activity_list(act_list,exc_type=exc_type)
             exclist = [e._data for e in exclist]
             assert exclist == expected_exclist
         else:
-            expected_exclist=[*act1.technosphere(),*act1.biosphere(), *act2.technosphere(),*act2.biosphere()]
-            expected_exclist = [e._data for e in expected_exclist]
-            exclist=pa.select_parameters_by_activity_list(act_list)
-            exclist = [e._data for e in exclist]
+            expected_exclist=[]
+            exclist=pa.select_parameters_by_activity_list(act_list,exc_type=exc_type)
             assert exclist == expected_exclist
 
 
-#def test_select_parameters_by_supply_chain_level():
+# def test_select_parameters_by_supply_chain_level(pa_fixture):
+#     act1 = get_activity(('foreground', 'act 1'))
+#     act2 = get_activity(('foreground', 'act 2'))
 #    supply_chain_levels=[1,3,5]
 #    for s in
 #    exclist = pa.select_parameters_by_supply_chain_level(activity,max_level=1)
