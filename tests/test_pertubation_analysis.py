@@ -203,6 +203,15 @@ def test_check_for_duplicates(pa_fixture):
     expected_elem = ('bio-exc4', 'act 3')
     assert elem == expected_elem
 
+def test_check_for_loops(pa_fixture):
+    act3 = get_activity(('foreground', 'act 3'))
+    act3_excs = [exc for exc in act3.exchanges()]
+    exclist = pa.check_for_loops(act3_excs)
+    exclist = [e._data for e in exclist]
+    expected_exclist = [*act3.biosphere()]
+    expected_exclist = [e._data for e in expected_exclist]
+    assert exclist == expected_exclist
+
 
 
 if __name__ == "__main__":
