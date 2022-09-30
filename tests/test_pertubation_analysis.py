@@ -5,6 +5,7 @@ from bw2calc import LCA
 from bw2analyzer import perturbation_analysis as pa
 
 
+
 @pytest.fixture
 @bw2test
 def pa_fixture():
@@ -177,17 +178,29 @@ def test_select_parameters_by_activity_list(pa_fixture):
             assert exclist == expected_exclist
 
 
-# def test_select_parameters_by_supply_chain_level(pa_fixture):
-#     act1 = get_activity(('foreground', 'act 1'))
-#     act2 = get_activity(('foreground', 'act 2'))
-#    supply_chain_levels=[1,3,5]
-#    for s in
-#    exclist = pa.select_parameters_by_supply_chain_level(activity,max_level=1)
-#    assert
-
+def test_select_parameters_by_supply_chain_level(pa_fixture):
+   act1 = get_activity(('foreground', 'act 1'))
+   act2 = get_activity(('foreground', 'act 2'))
+   act3 = get_activity(('foreground', 'act 3'))
+   act4 = get_activity(('foreground', 'act 4'))
+   supply_chain_levels=[1,2,5]
+   for s in supply_chain_levels:
+        exclist = pa.select_parameters_by_supply_chain_level(act1,max_level=s)
+        exclist = [e._data for e in exclist]
+        len_exclist = len(exclist)
+        if s == 1:
+            expected_exclist = [*act1.biosphere(), *act1.technosphere()]
+            expected_exclist = [e._data for e in expected_exclist]
+            len_expected_exclist = len(expected_exclist)
+        if s == 2:
+            len_expected_exclist = 13
+        if s == 5:
+            len_expected_exclist = 26
+        assert len_exclist == len_expected_exclist
 
 
 if __name__ == "__main__":
     pa_fixture()
     test_fixture_no_errors(None)
-#    test_parameter_selection()
+    test_select_parameters_by_activity_list()
+    test_select_parameters_by_supply_chain_level()
