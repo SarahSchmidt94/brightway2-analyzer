@@ -180,9 +180,6 @@ def test_select_parameters_by_activity_list(pa_fixture):
 
 def test_select_parameters_by_supply_chain_level(pa_fixture):
    act1 = get_activity(('foreground', 'act 1'))
-   act2 = get_activity(('foreground', 'act 2'))
-   act3 = get_activity(('foreground', 'act 3'))
-   act4 = get_activity(('foreground', 'act 4'))
    supply_chain_levels=[1,2,5]
    for s in supply_chain_levels:
         exclist = pa.select_parameters_by_supply_chain_level(act1,max_level=s)
@@ -197,6 +194,10 @@ def test_select_parameters_by_supply_chain_level(pa_fixture):
         if s == 5:
             len_expected_exclist = 26
         assert len_exclist == len_expected_exclist
+
+
+
+
 
 
 if __name__ == "__main__":
