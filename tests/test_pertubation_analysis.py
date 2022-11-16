@@ -128,6 +128,11 @@ def pa_fixture():
                         "type": "biosphere",
                     },
                     {
+                        "input": ("biosphere", "bio-exc4"),
+                        "amount": 0,
+                        "type": "biosphere",
+                    },
+                    {
                         "input": ("foreground", "act 2"),
                         "amount": 1,
                         "type": "technosphere",
@@ -211,6 +216,16 @@ def test_check_for_loops(pa_fixture):
     expected_exclist = [*act3.biosphere()]
     expected_exclist = [e._data for e in expected_exclist]
     assert exclist == expected_exclist
+
+def test_check_for_zeros(pa_fixture):
+    act4 = get_activity(('foreground', 'act 4'))
+    act4_excs = [exc for exc in act4.exchanges()]
+    exclist = pa.check_for_zeros(act4_excs)
+    exclist = [e._data for e in exclist]
+    expected_exclist = [*act4.biosphere()]
+    expected_exclist = [e._data for e in expected_exclist]
+    assert exclist == expected_exclist
+
 
 
 
