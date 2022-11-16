@@ -631,7 +631,7 @@ def plot_sensitivity_ratios_with_hist_absolute(sensitivity_ratio_df,LCIA_methods
         sensitivity_ratio_df: pd.DataFrame containing sensitivity ratios
                               output of *calculate_sensitivity_ratios*
         LCIA_methods: list with LCIA methods (bw.methods)
-        LCIA_method_names: list with abbreveations for LCIA-method-names /
+        LCIA_method_names: list with abbreviations for LCIA-method-names /
                            impact categories
         hist_IC: index of the LCIA_method to be displayed in the histogram
                  (0 refers to the first item of LCIA_method, ...)
