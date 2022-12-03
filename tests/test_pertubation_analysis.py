@@ -226,6 +226,26 @@ def test_check_for_zeros(pa_fixture):
     expected_exclist = [e._data for e in expected_exclist]
     assert exclist == expected_exclist
 
+def test_parameters_to_dataframe(pa_fixture):
+    act1 = get_activity(('foreground', 'act 1'))
+    exclist = pa.select_parameters_by_supply_chain_level(act1)
+    param_df = pa.parameters_to_dataframe(act1)
+    # expected_param_df =
+    assert param_df == expected_param_df
+
+def test_create_presamples():
+    assert
+
+def test_perform_perturbation_analysis():
+    assert
+
+def test_calculate_sensitivity_ratios():
+    assert
+
+def test_calculate_sensitivity_coefficients():
+    assert
+
+
 
 
 
