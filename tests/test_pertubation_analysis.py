@@ -9,29 +9,29 @@ from bw2analyzer import perturbation_analysis as pa
 @pytest.fixture
 @bw2test
 def pa_fixture():
-    Database("biosphere").write(
+    Database("biosphere3").write(
         {
-            ("biosphere", "bio-exc1"): {
+            ("biosphere3", "bio-exc1"): {
                 "name": "bio-exc1",
                 "type": "emission",
                 "categories": ("cat1", "cat2"),
             },
-            ("biosphere", "bio-exc2"): {
+            ("biosphere3", "bio-exc2"): {
                 "name": "bio-exc2",
                 "type": "emission",
                 "categories": ("cat1", "cat2"),
             },
-            ("biosphere", "bio-exc3"): {
+            ("biosphere3", "bio-exc3"): {
                 "name": "bio-exc3",
                 "type": "emission",
                 "categories": ("cat1", "cat2"),
             },
-            ("biosphere", "bio-exc4"): {
+            ("biosphere3", "bio-exc4"): {
                 "name": "bio-exc4",
                 "type": "emission",
                 "categories": ("cat1", "cat2"),
             },
-            ("biosphere", "bio-exc5"): {
+            ("biosphere3", "bio-exc5"): {
                 "name": "bio-exc5",
                 "type": "emission",
                 "categories": ("cat1", "cat2"),
@@ -43,11 +43,11 @@ def pa_fixture():
     method.register()
     method.write(
         [
-            (("biosphere", "bio-exc1"), 1),
-            (("biosphere", "bio-exc2"), 2),
-            (("biosphere", "bio-exc3"), 3),
-            (("biosphere", "bio-exc4"), 4),
-            (("biosphere", "bio-exc5"), 5),
+            (("biosphere3", "bio-exc1"), 1),
+            (("biosphere3", "bio-exc2"), 2),
+            (("biosphere3", "bio-exc3"), 3),
+            (("biosphere3", "bio-exc4"), 4),
+            (("biosphere3", "bio-exc5"), 5),
         ]
     )
 
@@ -63,12 +63,12 @@ def pa_fixture():
                         "type": "production",
                     },
                     {
-                        "input": ("biosphere", "bio-exc1"),
+                        "input": ("biosphere3", "bio-exc1"),
                         "amount": 1,
                         "type": "biosphere",
                     },
                     {
-                        "input": ("biosphere", "bio-exc2"),
+                        "input": ("biosphere3", "bio-exc2"),
                         "amount": 1,
                         "type": "biosphere",
                     },
@@ -104,7 +104,7 @@ def pa_fixture():
                         "type": "production",
                     },
                     {
-                        "input": ("biosphere", "bio-exc3"),
+                        "input": ("biosphere3", "bio-exc3"),
                         "amount": 1,
                         "type": "biosphere",
                     },
@@ -120,7 +120,7 @@ def pa_fixture():
                         "type": "technosphere",
                     },
                     {
-                        "input": ("biosphere", "bio-exc4"),
+                        "input": ("biosphere3", "bio-exc4"),
                         "amount": 1,
                         "type": "biosphere",
                     },
@@ -136,12 +136,12 @@ def pa_fixture():
                         "type": "production",
                     },
                     {
-                        "input": ("biosphere", "bio-exc5"),
+                        "input": ("biosphere3", "bio-exc5"),
                         "amount": 1,
                         "type": "biosphere",
                     },
                     {
-                        "input": ("biosphere", "bio-exc4"),
+                        "input": ("biosphere3", "bio-exc4"),
                         "amount": 0,
                         "type": "biosphere",
                     },
