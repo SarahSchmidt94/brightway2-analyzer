@@ -245,7 +245,7 @@ def test_parameters_to_dataframe(pa_fixture):
     param_df = pa.parameters_to_dataframe(exclist, category_type='type')
     actual_param_tuple=(len(param_df), {'biosphere':param_df['type'].value_counts()['biosphere'],
                                         'technosphere':param_df['type'].value_counts()['technosphere'],})
-    expected_param_tuple=(3, {'biosphere' : 1, 'technosphere': 2})
+    expected_param_tuple=(6, {'biosphere' : 2, 'technosphere': 4})
     assert expected_param_tuple == actual_param_tuple
 
 #def test_create_presamples():
