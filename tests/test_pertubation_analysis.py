@@ -248,7 +248,11 @@ def test_parameters_to_dataframe(pa_fixture):
     expected_param_tuple=(6, {'biosphere' : 2, 'technosphere': 4})
     assert expected_param_tuple == actual_param_tuple
 
-#def test_create_presamples():
+def test_create_presamples(pa_fixture):
+    act1 = get_activity(('foreground', 'act 1'))
+    exclist = pa.select_parameters_by_supply_chain_level(act1)
+    param_df = pa.parameters_to_dataframe(exclist, category_type='type')
+    pa.create_presamples(param_df, 'foreground')
     #assert
 
 #def test_perform_perturbation_analysis():
