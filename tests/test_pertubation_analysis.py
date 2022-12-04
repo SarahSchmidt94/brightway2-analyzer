@@ -54,6 +54,7 @@ def pa_fixture():
     Database("foreground").write(
         {
             ("foreground", "act 1"): {
+                "name": "act1",
                 "exchanges": [
                     {
                         "input": ("foreground", "act 1"),
@@ -93,6 +94,7 @@ def pa_fixture():
                 ],
             },
             ("foreground", "act 2"): {
+                "name": "act2",
                 "exchanges": [
                     {
                         "input": ("foreground", "act 2"),
@@ -107,6 +109,7 @@ def pa_fixture():
                 ]
             },
             ("foreground", "act 3"): {
+                "name": "act3",
                 "exchanges": [
                     {
                         "input": ("foreground", "act 3"),
@@ -121,6 +124,7 @@ def pa_fixture():
                 ]
             },
             ("foreground", "act 4"): {
+                "name": "act4",
                 "exchanges": [
                     {
                         "input": ("foreground", "act 4"),
