@@ -14,22 +14,27 @@ def pa_fixture():
             ("biosphere", "bio-exc1"): {
                 "name": "bio-exc1",
                 "type": "emission",
+                "categories": ("cat1", "cat2"),
             },
             ("biosphere", "bio-exc2"): {
                 "name": "bio-exc2",
                 "type": "emission",
+                "categories": ("cat1", "cat2"),
             },
             ("biosphere", "bio-exc3"): {
                 "name": "bio-exc3",
                 "type": "emission",
+                "categories": ("cat1", "cat2"),
             },
             ("biosphere", "bio-exc4"): {
                 "name": "bio-exc4",
                 "type": "emission",
+                "categories": ("cat1", "cat2"),
             },
             ("biosphere", "bio-exc5"): {
                 "name": "bio-exc5",
                 "type": "emission",
+                "categories": ("cat1", "cat2"),
             },
         }
     )
