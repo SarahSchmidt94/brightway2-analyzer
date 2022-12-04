@@ -229,9 +229,11 @@ def test_check_for_zeros(pa_fixture):
 def test_parameters_to_dataframe(pa_fixture):
     act1 = get_activity(('foreground', 'act 1'))
     exclist = pa.select_parameters_by_supply_chain_level(act1)
-    param_df = pa.parameters_to_dataframe(act1)
-    # expected_param_df =
-    #assert param_df == expected_param_df
+    param_df = pa.parameters_to_dataframe(exclist, category_type='type')
+    actual_param_tuple=(len(param_df), {'biosphere':param_df['type'].value_counts()['biosphere'],
+                                        'technosphere':param_df['type'].value_counts()['technosphere'],})
+    expected_param_tuple=(3, {'biosphere' : 1, 'technosphere': 2})
+    assert expected_param_tuple == actual_param_tuple
 
 #def test_create_presamples():
     #assert
